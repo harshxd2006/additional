@@ -13,12 +13,13 @@
 
   <header>
     <div class="logo">NEXUS<span style="color: #ff006e;">AI</span></div>
-    <nav>
+    <nav class="nav-menu">
       <a href="#tools">AI Tools</a>
       <a href="#categories">Categories</a>
       <a href="#about">About</a>
       <a href="#favorites" id="favorites-link">Favorites</a>
     </nav>
+    <button class="hamburger" id="hamburger">☰</button>
   </header>
 
   <section class="hero">
@@ -173,7 +174,7 @@
 
   <!-- Comparison Modal -->
   <div id="comparisonModal" class="modal">
-    <div class="modal-content" style="width: 90%; max-width: 1200px;">
+    <div class="modal-content modal-large">
       <span class="close-btn" onclick="closeComparisonModal()">&times;</span>
       <h2>Tool Comparison</h2>
       <div id="comparisonContent">No tools selected yet.</div>
@@ -203,19 +204,31 @@
 
   <!-- Video Modal -->
   <div id="videoModal" class="modal">
-    <div class="modal-content">
+    <div class="modal-content modal-large">
       <span class="close-btn" onclick="closeVideoModal()">&times;</span>
       <h2 id="videoTitle"></h2>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-        <iframe id="videoFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-container">
+        <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 
   <!-- Compare Button -->
-  <button id="compareBtn" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">Compare Selected Tools</button>
+  <button id="compareBtn">Compare Selected Tools</button>
 
   <script src="app.js"></script>
   <script src="review-system.js"></script>
+  <script>
+    // Mobile hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if(hamburger) {
+      hamburger.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+      });
+    }
+  </script>
 </body>
 </html>
